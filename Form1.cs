@@ -206,8 +206,7 @@ namespace ParkingLot
             if (src != null)
                 src.Dispose();
             if (copy != null)
-                if (copy != null)
-                    copy.Dispose();
+                copy.Dispose();
             if (parkingImg != null)
                 parkingImg.Dispose();
         }
