@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -14,7 +14,6 @@ namespace ParkingLot
         CvCapture capture;
         IplImage src;
         IplImage copy;
-        IplImage parkingImg;
         bool MousePlus;
         public string pointsFilePath = "../../position.json";
 
@@ -52,16 +51,12 @@ namespace ParkingLot
             try
             {
                 capture = CvCapture.FromFile("../../carPark.mp4");
-                parkingImg = new IplImage("../../carParkImg.png", LoadMode.AnyColor);
 
                 // 바이너리 초기 임계값
                 threshold = 88;
 
                 // 트랙바 초기 위치 설정
                 trackBar1.Value = threshold;
-
-                // 영상 전처리 후 copy에 영상 저장
-                copy = ProcessImage(src, threshold);
             }
             catch
             {
@@ -161,7 +156,7 @@ namespace ParkingLot
                 }
                 else
                 {
-                    // 주차된 되지 않은 칸은 노란색으로 사각형 그리기
+                    // 주차되지 않은 칸은 노란색으로 사각형 그리기
                     Cv.DrawRect(src, new CvRect(x, y, width, height), CvColor.Yellow, 2);
 
                     // 주차되지 않은 칸의 수 카운팅
@@ -207,8 +202,6 @@ namespace ParkingLot
                 src.Dispose();
             if (copy != null)
                 copy.Dispose();
-            if (parkingImg != null)
-                parkingImg.Dispose();
         }
 
     }
