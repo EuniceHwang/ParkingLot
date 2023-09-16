@@ -16,7 +16,7 @@ namespace ParkingLot
         IplImage copy;
         IplImage parkingImg;
         bool MousePlus;
-        private string pointsFilePath = "../../position.json";
+        public string pointsFilePath = "../../position.json";
 
         int width = 107;
         int height = 48;
