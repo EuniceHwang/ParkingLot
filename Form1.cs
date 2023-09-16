@@ -43,7 +43,7 @@ namespace ParkingLot
         public Form1()
         {
             InitializeComponent();
-            posList = LoadPointsFromJson(pointsFilePath); // 주차 칸의 오른쪽 상단 위치값 저장
+            posList = LoadPointsFromJson(pointsFilePath); // 주차 칸의 왼쪽 상단 위치값 저장
             pictureBoxIpl1.MouseDown += PictureBoxIpl1_MouseDown; // 위치값이 저장된 파일이 없을 때 마우스 클릭로 주차칸 위치값 지정
         }
 
